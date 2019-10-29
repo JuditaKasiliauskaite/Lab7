@@ -79,6 +79,13 @@ MovieModel.create({
 res.json('data uploaded')
 })
 
+app.get('/api/movies/:id',(req,res)=>{
+  console.log(req.params.id);
+
+  MovieModel.findById(req.params.id,(err,data)=>{
+    res.json(data);
+  })
+})
 
 app.listen(PORT, function () {
   console.log('Server is running on Port: ', PORT);
